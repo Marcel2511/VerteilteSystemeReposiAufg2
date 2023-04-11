@@ -1,0 +1,23 @@
+GET http://localhost:3000/table/false
+
+###
+
+POST http://localhost:3000/table
+Content-Type: application/json
+
+{
+  "tableNr": 4,
+  "capacity": 15,
+  "status": false
+}
+
+###
+
+PATCH http://localhost:3000/table/3
+Content-Type: application/json
+
+{
+  "tableNr": 3,
+  "capacity": 29,
+  "status": false
+}
