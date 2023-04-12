@@ -227,7 +227,7 @@ async function userHinzuf(e) {
         jqXHR.responseJSON.error === "Username already exists" // und wenn der Benutzername bereits vorhanden ist
       ) {
         console.log("Username already exists"); // gib eine Fehlermeldung in der Konsole aus
-        //alertExists(); // rufe eine Funktion auf, um den Benutzer zu informieren, dass der Benutzername bereits vorhanden ist
+        alert("Nutzername existiert bereits")
       } else {
         console.log("Failed to create user."); // gib eine Fehlermeldung in der Konsole aus
       }
@@ -250,9 +250,6 @@ async function tischHinzufügen() {
       status: false,
     }),
     success: function (data) {
-      // Wenn das Hinzufügen des Benutzers erfolgreich war, wird eine "success"-Funktion aufgerufen
-      // get the form element
-
       alert("Tisch erfolgreich angelegt!"); // display a popup message
 
       console.log("Table created successfully:", data); // gib eine Erfolgsmeldung in der Konsole aus
@@ -263,7 +260,6 @@ async function tischHinzufügen() {
       document.getElementById("new-table-capacity").value = "";
     },
     error: function (jqXHR) {
-      // Wenn das Hinzufügen des Benutzers fehlschlägt, wird eine "error"-Funktion aufgerufen
       console.log(jqXHR); // gib die Details des Fehlers in der Konsole aus
       if (
         jqXHR.status === 400 && // wenn der Fehlerstatus 400 ist
