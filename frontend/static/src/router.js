@@ -165,7 +165,7 @@ function anmelden(e) {
     },
     error: function () {
       // Wenn die Anmeldung fehlschlägt, wird eine "error"-Funktion aufgerufen
-      alert("Invalid username or password."); // gib eine Fehlermeldung aus
+      alert("Falscher Nutzername oder Passwort"); // gib eine Fehlermeldung aus
       console.log("Failed to log in."); // gib eine Fehlermeldung in der Konsole aus
     },
   });
