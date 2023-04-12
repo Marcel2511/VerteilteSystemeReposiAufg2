@@ -170,15 +170,34 @@ function anmelden(e) {
     },
   });
 }
+function validateUsername(username) {
+  const regex = /^[a-zA-Z0-9_]{4,20}$/; // only allow alphanumeric characters and underscore, length between 4 and 20
+  return regex.test(username);
+}
+
+function validatePassword(password) {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; // at least one lowercase, one uppercase, one digit, length at least 8
+  return regex.test(password);
+}
 
 async function userHinzuf(e) {
   const username = document.getElementById("new-username").value;
   const password = document.getElementById("new-password").value;
   const confirmPassword = document.getElementById("confirm-password").value;
 
-  if (password !== confirmPassword) {
-    alert("The passwords do not match.");
+  if (!validateUsername(username)) {
+    alert("Nutzername ist ungültig. Mindestens 4 Zeichen und nur alphanumerische Zeichen und '_' erlaubt");
     return;
+  }
+
+  if (!validatePassword(password)) {
+    alert("Passwort ist ungültig, es wird mindestens ein Großbuchstabe, ein Kleinbuchsatbe, eine Zahl und eine Länge von 8 benötigt.");
+    return;
+  }
+  if (password !== confirmPassword) {
+    alert("Passwörter sind nicht identisch");
+    return;
+
   }
 
   // Führe eine AJAX-Anfrage an den Server aus, um einen neuen Benutzer hinzuzufügen
